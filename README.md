@@ -6,6 +6,8 @@ Trying to avoid the security shortcomings of the ACF shortcode, bindings are onl
 
 Block Bindings are currently only editable via code view, although this will become a UI in future WordPress releases.
 
+You can bind any ACF field on the current post object to any WordPress Core Block binding. You can find the [full list of core blocks and their supported binding attributes here](https://developer.wordpress.org/news/2024/02/20/introducing-block-bindings-part-1-connecting-custom-fields/)
+
 Here's a sample, of an WordPress Core Image Block, bound to an ACF image field for the URL, and a text field for the description. You need to make sure the return type for the image field is set to URL for this to work.
 
 ```html
