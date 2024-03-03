@@ -15,20 +15,20 @@ add_action(
 	'init',
 	function () {
 
-        /**
-         * Only run if ACF is installed an activated.
-         */
+		/**
+		 * Only run if ACF is installed an activated.
+		 */
 		if ( ! function_exists( 'acf_get_setting' ) ) {
 			return;
 		}
 
 		/**
-		* Check if a currently fictional `acf/settings/enable_block_bindings` exists.
-		* This gives ACF a way to disable this plugin when/if this makes it into ACF core.
-		*/
+		 * Check if a currently fictional `acf/settings/enable_block_bindings` exists.
+		 * This gives ACF a way to disable this plugin when/if this makes it into ACF core.
+		 */
 		$upstream_setting = acf_get_setting( 'enable_block_bindings' );
 		if ( $upstream_setting === null ) {
-			register_acf_block_bindings_source();
+			register_acfbb_block_bindings_source();
 		}
 	}
 );
@@ -58,11 +58,11 @@ function acfbb_get_block_binding_post_value( $source_attrs ) {
  *
  * @since 0.1
  */
-function register_acf_block_bindings_source() {
+function register_acfbb_block_bindings_source() {
 	register_block_bindings_source(
 		'acf/post',
 		array(
-			'label'              => _x( 'ACF', 'acf' ),
+			'label'              => _x( 'ACF Post Fields', 'acf' ),
 			'get_value_callback' => 'acfbb_get_block_binding_post_value',
 		)
 	);
